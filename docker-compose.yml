@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8001:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DEBUG=1
+      - DJANGO_SETTINGS_MODULE=rock_music_assignment.settings
+    command: python manage.py runserver 0.0.0.0:8000

@@ -1,0 +1,1 @@
+default_app_config = "rock_music_assignment.apps.GrungeAppConfig"

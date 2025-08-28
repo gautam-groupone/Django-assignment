@@ -1,5 +1,3 @@
-# Grunge Rock Development Application
-
 ## Overview
 
 This Django project implements a catalogue of Grunge rock music.  It has a fully-functional Django admin interface, and a read-only REST API.  It contains three related data models:
