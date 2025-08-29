@@ -3,7 +3,7 @@
 We aim to extend an existing Django project that catalogs rock music. The project currently includes models for **Artist**, **Album**, and **Track**, along with **Django Admin** and a **read-only REST API**.
 
 Your task is to implement a **Playlist** feature with backend functionality and a minimal frontend (Django templates/views).  
-Playlists should support **CRUD operations**, **track ordering**, and **user ownership**.
+Playlists should support **CRUD operations**, **track ordering**.
 
 ---
 
