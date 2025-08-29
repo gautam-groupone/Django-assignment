@@ -33,7 +33,12 @@ class Artist(UUIDModel):
         return str(self.name)
 
     def get_absolute_url(self) -> str:
-        return str(reverse("admin:grunge_artist_change", kwargs={"object_id": self.pk}))
+        return str(
+            reverse(
+                "admin:rock_music_assignment_artist_change",
+                kwargs={"object_id": self.pk},
+            )
+        )
 
 
 class Album(UUIDModel):
@@ -56,7 +61,12 @@ class Album(UUIDModel):
         return str(self.name)
 
     def get_absolute_url(self) -> str:
-        return str(reverse("admin:grunge_album_change", kwargs={"object_id": self.pk}))
+        return str(
+            reverse(
+                "admin:rock_music_assignment_album_change",
+                kwargs={"object_id": self.pk},
+            )
+        )
 
 
 class Track(UUIDModel):
@@ -84,4 +94,9 @@ class Track(UUIDModel):
         return str(self.name)
 
     def get_absolute_url(self) -> str:
-        return str(reverse("admin:grunge_track_change", kwargs={"object_id": self.pk}))
+        return str(
+            reverse(
+                "admin:rock_music_assignment_track_change",
+                kwargs={"object_id": self.pk},
+            )
+        )

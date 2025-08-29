@@ -55,9 +55,9 @@ local_settings.py
 staticfiles.json
 db.sqlite3
 static/
-!grunge/static/
+!rock_music_assignment/static/
 media/
-!grunge/fixtures/media/
+!rock_music_assignment/fixtures/media/
 
 # Flask stuff:
 instance/

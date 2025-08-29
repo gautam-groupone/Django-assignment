@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Setting up Grunge Django project with Docker..."
+echo "🚀 Setting up Rock Music Assignment Django project with Docker..."
 
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; then

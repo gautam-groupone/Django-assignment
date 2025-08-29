@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     "django_filters",
     "rest_framework",
     "rest_framework.authtoken",
-    "rock_music_assignment.apps.GrungeAppConfig",
+    "rock_music_assignment.apps.RockMusicAssignmentAppConfig",
     "django.contrib.admin",
 ]
 
@@ -186,7 +186,7 @@ PAGE_SIZE_QUERY_PARAM = ENV.str("PAGE_SIZE_QUERY_PARAM", "page_size")
 
 # Ensure Django looks for migrations inside the renamed package
 MIGRATION_MODULES = {
-    "grunge": "rock_music_assignment.migrations",
+    "rock_music_assignment": "rock_music_assignment.migrations",
 }
 
 if DEBUG:

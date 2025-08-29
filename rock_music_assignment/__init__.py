@@ -1,1 +1,1 @@
-default_app_config = "rock_music_assignment.apps.GrungeAppConfig"
+default_app_config = "rock_music_assignment.apps.RockMusicAssignmentAppConfig"

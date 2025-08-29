@@ -1,9 +1,7 @@
 from django.apps import AppConfig
 
 
-class GrungeAppConfig(AppConfig):
+class RockMusicAssignmentAppConfig(AppConfig):
     name = "rock_music_assignment"
-    label = "grunge"
-    verbose_name = "Grunge"
-
-
+    label = "rock_music_assignment"
+    verbose_name = "Rock Music Assignment"

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Artist, Album, Track
+
+from .models import Album, Artist, Track
 
 # Basic admin registration without type hints
 admin.site.register(Artist)
