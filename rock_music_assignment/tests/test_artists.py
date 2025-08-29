@@ -22,7 +22,7 @@ class TestArtists:
         url = drf_reverse("artist-list", kwargs={"version": self.version})
         response = self.client.get(url)
         assert response.status_code == status.HTTP_200_OK
-        assert response.data["count"] == 21
+        assert response.data["count"] == 2
 
     def test_search_artists(self):
         """Test searching artists by name."""

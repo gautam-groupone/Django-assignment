@@ -10,6 +10,7 @@ def django_db_setup(django_db_setup, django_db_blocker):
     with django_db_blocker.unblock():
         # Load fixtures for all tests
         call_command("loaddata", "rock_music_assignment/fixtures/initial_data.json")
+        call_command("loaddata", "rock_music_assignment/fixtures/test_data.json")
 
 
 @pytest.fixture

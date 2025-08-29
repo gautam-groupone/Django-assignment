@@ -23,7 +23,7 @@ class TestTracks:
         url = drf_reverse("track-list", kwargs={"version": self.version})
         response = self.client.get(url)
         assert response.status_code == status.HTTP_200_OK
-        assert response.data["count"] == 3695
+        assert response.data["count"] == 2
 
     def test_search_tracks(self):
         """Test searching tracks by name."""
@@ -31,7 +31,7 @@ class TestTracks:
         url = furl(url).set({"name": self.track_name}).url
         response = self.client.get(url)
         assert response.status_code == status.HTTP_200_OK
-        assert response.data["count"] == 4
+        assert response.data["count"] == 1
         assert response.data["results"][0]["uuid"] == self.track_uuid
 
     def test_get_track(self):

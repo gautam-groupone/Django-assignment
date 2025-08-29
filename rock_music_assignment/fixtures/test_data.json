@@ -1,0 +1,61 @@
+[
+  {
+    "model": "rock_music_assignment.artist",
+    "pk": 1,
+    "fields": {
+      "uuid": "9e52205f-9927-4eff-b132-ce10c6f3e0b1",
+      "name": "Pearl Jam"
+    }
+  },
+  {
+    "model": "rock_music_assignment.album",
+    "pk": 1,
+    "fields": {
+      "uuid": "b4fee0db-0c93-4470-96b3-cebd158033a0",
+      "name": "Vitalogy",
+      "year": 1994,
+      "artist": 1
+    }
+  },
+  {
+    "model": "rock_music_assignment.track",
+    "pk": 1,
+    "fields": {
+      "uuid": "b3083319-47a9-40ed-a4e0-a79d050d9df7",
+      "name": "Last Exit",
+      "album": 1,
+      "number": 1
+    }
+  },
+  {
+    "model": "rock_music_assignment.artist",
+    "pk": 2,
+    "fields": {
+      "uuid": "8f52205f-9927-4eff-b132-ce10c6f3e0b2",
+      "name": "Nirvana"
+    }
+  },
+  {
+    "model": "rock_music_assignment.album",
+    "pk": 2,
+    "fields": {
+      "uuid": "a4fee0db-0c93-4470-96b3-cebd158033a1",
+      "name": "Nevermind",
+      "year": 1991,
+      "artist": 2
+    }
+  },
+  {
+    "model": "rock_music_assignment.track",
+    "pk": 2,
+    "fields": {
+      "uuid": "c3083319-47a9-40ed-a4e0-a79d050d9df8",
+      "name": "Smells Like Teen Spirit",
+      "album": 2,
+      "number": 1
+    }
+  }
+]
+
+
+

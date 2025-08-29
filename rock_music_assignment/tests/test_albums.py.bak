@@ -23,7 +23,7 @@ class TestAlbums:
         url = drf_reverse("album-list", kwargs={"version": self.version})
         response = self.client.get(url)
         assert response.status_code == status.HTTP_200_OK
-        assert response.data["count"] == 2
+        assert response.data["count"] == 291
 
     def test_search_albums(self):
         """Test searching albums by name."""
@@ -31,7 +31,7 @@ class TestAlbums:
         url = furl(url).set({"name": self.album_name}).url
         response = self.client.get(url)
         assert response.status_code == status.HTTP_200_OK
-        assert response.data["count"] == 1
+        assert response.data["count"] == 3
         assert response.data["results"][0]["uuid"] == self.album_uuid
         assert response.data["results"][0]["artist"]["uuid"] == self.artist_uuid
 
