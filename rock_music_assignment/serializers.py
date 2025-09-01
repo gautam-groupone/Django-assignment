@@ -3,7 +3,7 @@ from rest_framework import serializers
 from rest_framework.reverse import reverse as drf_reverse
 
 from .fields import UUIDHyperlinkedIdentityField
-from .models import Album, Artist, Track
+from .models import Album, Artist, Track, Playlist, TrackPlaylistOrder
 
 
 class TrackAlbumArtistSerializer(serializers.ModelSerializer):
@@ -76,3 +76,21 @@ class ArtistSerializer(serializers.ModelSerializer):
     def get_albums_url(self, artist: Artist) -> str:
         path = drf_reverse("album-list", request=self.context["request"])
         return str(furl(path).set({"artist_uuid": artist.uuid}).url)
+
+
+class PlaylistSerializer(serializers.ModelSerializer):
+    uuid = serializers.ReadOnlyField()
+
+    class Meta:
+        model = Playlist
+        fields = ("uuid", "name")
+
+
+class TrackPlaylistOrderSerializer(serializers.ModelSerializer):
+    playlist_uuid = serializers.UUIDField(source="playlist.uuid", read_only=True)
+    track_name = serializers.CharField(source="track.name", read_only=True)
+    track_uuid = serializers.UUIDField(source="track.uuid", read_only=True)
+
+    class Meta:
+        model = TrackPlaylistOrder
+        fields = ("id", "playlist_uuid", "track_uuid", "track_name", "order_number")

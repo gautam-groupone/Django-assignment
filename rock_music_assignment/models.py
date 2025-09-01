@@ -100,3 +100,37 @@ class Track(UUIDModel):
                 kwargs={"object_id": self.pk},
             )
         )
+
+
+class Playlist(UUIDModel):
+    name: str = models.CharField(max_length=100, help_text=_("The playlist name"))
+    tracks: "models.ManyToManyField[Track]" = models.ManyToManyField(Track, related_name="playlists",
+                                                                     through="TrackPlaylistOrder")
+
+    def __str__(self) -> str:
+        return str(self.name)
+
+    class Meta:
+        ordering = ("name",)
+        indexes = (models.Index(fields=("name",)),)
+
+
+class TrackPlaylistOrder(models.Model):
+    playlist: "models.ForeignKey[Playlist]" = models.ForeignKey(Playlist, related_name="playlist_tracks",
+                                                                on_delete=models.CASCADE)
+    track: "models.ForeignKey[Track]" = models.ForeignKey(Track, related_name="playlist_tracks",
+                                                          on_delete=models.CASCADE)
+    order_number: int = models.PositiveSmallIntegerField(help_text=_("The order number on the track in the playlist"))
+
+    def __str__(self) -> str:
+        return f"{self.track.name} in {self.playlist.name} (order {self.order_number})"
+
+    class Meta:
+        ordering = ("order_number",)
+        unique_together = ("playlist", "track")
+        constraints = (
+            models.UniqueConstraint(
+                fields=("playlist", "order_number"),
+                name="unique_track_order_in_playlist",
+            ),
+        )
