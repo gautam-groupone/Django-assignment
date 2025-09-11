@@ -1,61 +1,37 @@
-.PHONY: check lint format test testfast ready dumpinitialdata mypy docker-build docker-run docker-stop docker-test docker-test-fast
+.PHONY: check lint format test testfast ready dumpinitialdata mypy docker-build docker-run docker-stop
 
 check:
-	docker-compose exec web python manage.py check
+	python3 manage.py check
 
 format:
-	docker-compose exec web isort --atomic --skip-glob="venv/*" rock_music_assignment
-	docker-compose exec web black --exclude="venv/" rock_music_assignment
+	isort --atomic --skip-glob="venv/*" grunge
+	black --exclude="venv/" grunge
 
 lint:
-	docker-compose exec web flake8 rock_music_assignment
-	docker-compose exec web black --check --exclude="venv/" rock_music_assignment
-	docker-compose exec web mypy rock_music_assignment
+	flake8 grunge
+	black --check --exclude="venv/" grunge
+	mypy grunge
 
 test:
-	docker-compose exec web python manage.py test
+	python3 manage.py test
 
 testfast:
-	docker-compose exec web python manage.py test --failfast
+	python3 manage.py test --failfast
 
-pytest:
-	docker-compose exec web pytest
-
-pytest-fast:
-	docker-compose exec web pytest --tb=short
-
-pytest-cov:
-	docker-compose exec web pytest --cov=rock_music_assignment --cov-report=html --cov-report=term
-
-ready: check lint pytest-fast
+ready: check lint testfast
 
 mypy:
-	docker-compose exec web mypy rock_music_assignment
+	mypy grunge
 
 docker-build:
 	docker-compose build
 
-start:
+docker-run:
 	docker-compose up -d
-
-migrations:
-	docker-compose exec web python manage.py makemigrations
-
-migrate:
-	docker-compose exec web python manage.py migrate
 
 docker-stop:
 	docker-compose down
 
-docker-test:
-	docker-compose exec web pytest
-
-docker-test-fast:
-	docker-compose exec web pytest --tb=short
-
-docker-test-cov:
-	docker-compose exec web pytest --cov=rock_music_assignment --cov-report=html --cov-report=term
-
 dumpinitialdata:
-	docker-compose exec web python manage.py dumpdata --natural-foreign --natural-primary \
-		--exclude=admin.logentry --all --indent=2 > rock_music_assignment/fixtures/initial_data.json
+	python manage.py dumpdata --natural-foreign --natural-primary \
+		--exclude=admin.logentry --all --indent=2 > grunge/fixtures/initial_data.json

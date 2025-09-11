@@ -1,67 +1,45 @@
-# Problem Statement
+# Grunge Rock Development Application
 
-We aim to extend an existing Django project that catalogs rock music. The project currently includes models for **Artist**, **Album**, and **Track**, along with **Django Admin** and a **read-only REST API**.
+## Overview
 
-Your task is to implement a **Playlist** feature with backend functionality and a minimal frontend (Django templates/views).  
-Playlists should support **CRUD operations**, **track ordering**.
+This Django project implements a catalogue of Grunge rock music.  It has a fully-functional Django admin interface, and a read-only REST API.  It contains three related data models:
 
----
+1. `Artist`
+2. `Album`
+3. `Track`
 
-## This assignment is designed to test:
-- Backend expertise in Django (**models, business logic, admin, REST API using DRF**)
-- Frontend integration (**Django templates, form views for playlist management**)
+If you are applying for a Full Stack role, your submission should satisfy the Full Stack Candidate goals.
+Otherwise, your submission should satisfy the Backend Candidate goals.
 
----
+## Backend Candidate Goals
 
-## Must Haves
+* Implement the ability to fetch, create, update, and delete playlists through the REST API.  A playlist should have a `uuid`, a `name`, and contain 0 or more tracks from this catalogue.  The tracks should be orderable in the playlist.
+* Implement the test cases in `tests/test_playlists.py`.  The goal is to have no skipped or failing tests.
+* Update the Django admin with the ability to browse and manage playlists.
 
-### 1. Playlists CRUD
-Implement **Create, Read, Update, and Delete** functionality for playlists.  
+## Fullstack Candidate Goals
 
-Each playlist must have:
-- `uuid` (unique identifier)
-- `name`
-- `0 or more orderable tracks`
+* Implement the ability to fetch, create, update, and delete playlists using Django views and templates.  A playlist should have a `uuid`, a `name`, and contain 0 or more tracks from this catalogue.  The tracks should be orderable in the playlist.
+* Update the Django admin with the ability to browse and manage playlists.
 
----
 
-### 2. Track Ordering
-- Allow users to change the **order of tracks** in a playlist.
+## Django Code Assessment Criteria
 
----
+Used for Backend and Fullstack role code assessments.  All submissions will be evaluated based on these base criteria, and specific roles might have some additional points to consider.
 
-### 3. Business Rules
-- Prevent **duplicate tracks** in a playlist.  
-- Limit playlists to a maximum of **100 tracks**.  
-- Validate that a **track belongs to the album’s artist**.  
+* Ability to run the project. Reviewers should be able to run the project locally using standard processes like `manage.py` or Foreman.
+* Tidiness of the source code repository. No stray files like logs, virtual environments, databases, etc.
+* Adherence to Python code style established by the community standards like PEP-8.
+* Conformance to the Django Architecture. Proper use of models, views, templates, and preferring features and utilities provided by Django rather than candidate rolling their own.
+* Command of Django. Show off how deep your knowledge of Django and its ecosystem is and how much you can defer to the framework to achieve a good power-to-weight ratio.
+* Query efficiency. Avoid problems like N+1 queries or duplicated queries.
+* Cohesiveness of the project. No missing files, broken styles, stub features, etc.
+* Submission process adherence. Submission should be a pull request. Commits should be atomic with clear messages.
 
----
+### Backend Engineer Focus
 
-### 4. Django Admin
-- Extend admin to support browsing and managing playlists.
-
----
-
-### 5. REST API (Django REST Framework)
-- Implement **CRUD endpoints** for playlists and playlist tracks.  
-- Ensure **ordering, validation, and rules** are enforced at the API level.  
-- Use proper **HTTP status codes** and **error handling**.  
-
----
-
-### 6. Templates / Form Views (UI)
-- Provide Django **form views and templates** to view, create, and edit playlists.  
-- Use Django forms for **validation and error handling**.  
-- Keep the frontend **minimal but user-friendly**.  
-
----
-
-### 7. Testing
-Cover CRUD and business rule edge cases, including:
-- Duplicate tracks  
-- Playlist size limits  
-- Reordering  
-- Invalid data
+* Admin experience of managing albums. We will be looking at how effectively someone would be able to manage albums, tracks, and playlists through the admin. Admin users will want to update details, re-order tracks, and so on.
+* Strength of the data model. It is important for data to be modeled in a way that supports robust APIs and useful admin views, and also enforces domain rules.
 
 ## Developing
 
@@ -88,6 +66,39 @@ Please ensure that there are no code format or lint errors.
 
 When you have completed the goals then you can open a Pull Request to this main repository.
 
+### Set up a virtualenv
+
+This application is compatible with Python 3.10 and later.  You can set up a virtual environment with:
+
+```shell
+$ python3 -m venv --upgrade-deps venv
+$ source venv/bin/activate
+```
+
+### Install dependencies
+
+```shell
+$ python3 -m pip install --requirement=requirements.txt
+```
+
+### Initialize the development database
+
+```shell
+$ python3 manage.py migrate
+$ python3 manage.py loaddata initial_data
+```
+
+### Add a development superuser
+
+```shell
+$ python3 manage.py createsuperuser
+```
+
+### Run the development server
+
+```shell
+$ python3 manage.py runserver
+```
 
 Log into the Django admin with your superuser account at:
 
@@ -96,4 +107,3 @@ Log into the Django admin with your superuser account at:
 Browse the REST API at:
 
 [http://localhost:8000/api/v1/](http://localhost:8000/api/v1/).
-# Django-assignment
