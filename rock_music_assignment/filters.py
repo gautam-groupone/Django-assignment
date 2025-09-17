@@ -1,6 +1,6 @@
 from django_filters import rest_framework as filters
 
-from .models import Album, Artist, Track
+from .models import Album, Artist, Track, Playlist
 
 
 class ArtistFilter(filters.FilterSet):
@@ -30,3 +30,13 @@ class TrackFilter(filters.FilterSet):
     class Meta:
         model = Track
         fields = ("album_uuid", "name")
+
+
+# class PlaylistFilter(filters.FilterSet):
+#
+#     playlist_uuid = filters.UUIDFilter("playlist__uuid")
+#     name = filters.CharFilter(lookup_expr="icontains")
+#
+#     class Meta:
+#         model = Playlist
+#         fields = ("album_uuid", "name")

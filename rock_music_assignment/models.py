@@ -100,3 +100,27 @@ class Track(UUIDModel):
                 kwargs={"object_id": self.pk},
             )
         )
+
+
+class Playlist(UUIDModel):
+    name = models.CharField(max_length=200, help_text='Name of the Playlist', unique=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self) -> str:
+        return str(
+            reverse(
+                "admin:rock_music_assignment_album_change",
+                kwargs={"object_id": self.pk},
+            )
+        )
+
+
+class TrackPlaylistLink(models.Model):
+    track = models.ForeignKey(Track, related_name='track_link', on_delete=models.CASCADE)
+    track_order = models.IntegerField(default=0)
+    playlist = models.ForeignKey(Playlist, related_name='playlist_link', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.track_id) + ' ' + str(self.playlist_id)
