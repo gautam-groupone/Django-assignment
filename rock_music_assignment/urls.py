@@ -5,6 +5,7 @@ from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 
 from .viewsets import AlbumViewSet, ArtistViewSet, TrackViewSet
+from .views import AllPlaylistView, SinglePlaylistView
 
 urlpatterns = []
 
@@ -20,7 +21,10 @@ if settings.DJANGO_API_ENABLED:
     api_router.register("artists", ArtistViewSet)
     api_router.register("albums", AlbumViewSet)
     api_router.register("tracks", TrackViewSet)
+    # api_router.register("playlists", TrackViewSet)
 
     urlpatterns += [
         path("api/<version>/", include(api_router.urls)),
+        path('api/<version>/playlists/', AllPlaylistView.as_view()),
+        path('api/<version>/playlists/<id>/', SinglePlaylistView.as_view()),
     ]
