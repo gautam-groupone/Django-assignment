@@ -51,22 +51,36 @@
 {
   "model": "contenttypes.contenttype",
   "fields": {
-    "app_label": "grunge",
-    "model": "album"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "fields": {
-    "app_label": "grunge",
+    "app_label": "rock_music_assignment",
     "model": "artist"
   }
 },
 {
   "model": "contenttypes.contenttype",
   "fields": {
-    "app_label": "grunge",
+    "app_label": "rock_music_assignment",
+    "model": "album"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "rock_music_assignment",
     "model": "track"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "rock_music_assignment",
+    "model": "playlist"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "rock_music_assignment",
+    "model": "playlisttrack"
   }
 },
 {
@@ -74,41 +88,6 @@
   "fields": {
     "app_label": "admin",
     "model": "logentry"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "fields": {
-    "app_label": "grunge",
-    "model": "playlist"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "fields": {
-    "app_label": "grunge",
-    "model": "playlisttrack"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "fields": {
-    "app_label": "rock_music_assignment",
-    "model": "artist"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "fields": {
-    "app_label": "rock_music_assignment",
-    "model": "album"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "fields": {
-    "app_label": "rock_music_assignment",
-    "model": "track"
   }
 },
 {
@@ -378,7 +357,7 @@
 {
   "model": "auth.permission",
   "fields": {
-    "name": "Can add token",
+    "name": "Can add Token",
     "content_type": [
       "authtoken",
       "tokenproxy"
@@ -389,7 +368,7 @@
 {
   "model": "auth.permission",
   "fields": {
-    "name": "Can change token",
+    "name": "Can change Token",
     "content_type": [
       "authtoken",
       "tokenproxy"
@@ -400,7 +379,7 @@
 {
   "model": "auth.permission",
   "fields": {
-    "name": "Can delete token",
+    "name": "Can delete Token",
     "content_type": [
       "authtoken",
       "tokenproxy"
@@ -411,7 +390,7 @@
 {
   "model": "auth.permission",
   "fields": {
-    "name": "Can view token",
+    "name": "Can view Token",
     "content_type": [
       "authtoken",
       "tokenproxy"
@@ -422,53 +401,9 @@
 {
   "model": "auth.permission",
   "fields": {
-    "name": "Can add album",
-    "content_type": [
-      "grunge",
-      "album"
-    ],
-    "codename": "add_album"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can change album",
-    "content_type": [
-      "grunge",
-      "album"
-    ],
-    "codename": "change_album"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can delete album",
-    "content_type": [
-      "grunge",
-      "album"
-    ],
-    "codename": "delete_album"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can view album",
-    "content_type": [
-      "grunge",
-      "album"
-    ],
-    "codename": "view_album"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
     "name": "Can add artist",
     "content_type": [
-      "grunge",
+      "rock_music_assignment",
       "artist"
     ],
     "codename": "add_artist"
@@ -479,7 +414,7 @@
   "fields": {
     "name": "Can change artist",
     "content_type": [
-      "grunge",
+      "rock_music_assignment",
       "artist"
     ],
     "codename": "change_artist"
@@ -490,7 +425,7 @@
   "fields": {
     "name": "Can delete artist",
     "content_type": [
-      "grunge",
+      "rock_music_assignment",
       "artist"
     ],
     "codename": "delete_artist"
@@ -501,7 +436,7 @@
   "fields": {
     "name": "Can view artist",
     "content_type": [
-      "grunge",
+      "rock_music_assignment",
       "artist"
     ],
     "codename": "view_artist"
@@ -510,9 +445,53 @@
 {
   "model": "auth.permission",
   "fields": {
+    "name": "Can add album",
+    "content_type": [
+      "rock_music_assignment",
+      "album"
+    ],
+    "codename": "add_album"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change album",
+    "content_type": [
+      "rock_music_assignment",
+      "album"
+    ],
+    "codename": "change_album"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete album",
+    "content_type": [
+      "rock_music_assignment",
+      "album"
+    ],
+    "codename": "delete_album"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view album",
+    "content_type": [
+      "rock_music_assignment",
+      "album"
+    ],
+    "codename": "view_album"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
     "name": "Can add track",
     "content_type": [
-      "grunge",
+      "rock_music_assignment",
       "track"
     ],
     "codename": "add_track"
@@ -523,7 +502,7 @@
   "fields": {
     "name": "Can change track",
     "content_type": [
-      "grunge",
+      "rock_music_assignment",
       "track"
     ],
     "codename": "change_track"
@@ -534,7 +513,7 @@
   "fields": {
     "name": "Can delete track",
     "content_type": [
-      "grunge",
+      "rock_music_assignment",
       "track"
     ],
     "codename": "delete_track"
@@ -545,10 +524,98 @@
   "fields": {
     "name": "Can view track",
     "content_type": [
-      "grunge",
+      "rock_music_assignment",
       "track"
     ],
     "codename": "view_track"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add playlist",
+    "content_type": [
+      "rock_music_assignment",
+      "playlist"
+    ],
+    "codename": "add_playlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change playlist",
+    "content_type": [
+      "rock_music_assignment",
+      "playlist"
+    ],
+    "codename": "change_playlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete playlist",
+    "content_type": [
+      "rock_music_assignment",
+      "playlist"
+    ],
+    "codename": "delete_playlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view playlist",
+    "content_type": [
+      "rock_music_assignment",
+      "playlist"
+    ],
+    "codename": "view_playlist"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add play list track",
+    "content_type": [
+      "rock_music_assignment",
+      "playlisttrack"
+    ],
+    "codename": "add_playlisttrack"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change play list track",
+    "content_type": [
+      "rock_music_assignment",
+      "playlisttrack"
+    ],
+    "codename": "change_playlisttrack"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete play list track",
+    "content_type": [
+      "rock_music_assignment",
+      "playlisttrack"
+    ],
+    "codename": "delete_playlisttrack"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view play list track",
+    "content_type": [
+      "rock_music_assignment",
+      "playlisttrack"
+    ],
+    "codename": "view_playlisttrack"
   }
 },
 {
@@ -593,253 +660,6 @@
       "logentry"
     ],
     "codename": "view_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can add playlist",
-    "content_type": [
-      "grunge",
-      "playlist"
-    ],
-    "codename": "add_playlist"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can change playlist",
-    "content_type": [
-      "grunge",
-      "playlist"
-    ],
-    "codename": "change_playlist"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can delete playlist",
-    "content_type": [
-      "grunge",
-      "playlist"
-    ],
-    "codename": "delete_playlist"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can view playlist",
-    "content_type": [
-      "grunge",
-      "playlist"
-    ],
-    "codename": "view_playlist"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can add playlist track",
-    "content_type": [
-      "grunge",
-      "playlisttrack"
-    ],
-    "codename": "add_playlisttrack"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can change playlist track",
-    "content_type": [
-      "grunge",
-      "playlisttrack"
-    ],
-    "codename": "change_playlisttrack"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can delete playlist track",
-    "content_type": [
-      "grunge",
-      "playlisttrack"
-    ],
-    "codename": "delete_playlisttrack"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can view playlist track",
-    "content_type": [
-      "grunge",
-      "playlisttrack"
-    ],
-    "codename": "view_playlisttrack"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can add artist",
-    "content_type": [
-      "rock_music_assignment",
-      "artist"
-    ],
-    "codename": "add_artist"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can change artist",
-    "content_type": [
-      "rock_music_assignment",
-      "artist"
-    ],
-    "codename": "change_artist"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can delete artist",
-    "content_type": [
-      "rock_music_assignment",
-      "artist"
-    ],
-    "codename": "delete_artist"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can view artist",
-    "content_type": [
-      "rock_music_assignment",
-      "artist"
-    ],
-    "codename": "view_artist"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can add album",
-    "content_type": [
-      "rock_music_assignment",
-      "album"
-    ],
-    "codename": "add_album"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can change album",
-    "content_type": [
-      "rock_music_assignment",
-      "album"
-    ],
-    "codename": "change_album"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can delete album",
-    "content_type": [
-      "rock_music_assignment",
-      "album"
-    ],
-    "codename": "delete_album"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can view album",
-    "content_type": [
-      "rock_music_assignment",
-      "album"
-    ],
-    "codename": "view_album"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can add track",
-    "content_type": [
-      "rock_music_assignment",
-      "track"
-    ],
-    "codename": "add_track"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can change track",
-    "content_type": [
-      "rock_music_assignment",
-      "track"
-    ],
-    "codename": "change_track"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can delete track",
-    "content_type": [
-      "rock_music_assignment",
-      "track"
-    ],
-    "codename": "delete_track"
-  }
-},
-{
-  "model": "auth.permission",
-  "fields": {
-    "name": "Can view track",
-    "content_type": [
-      "rock_music_assignment",
-      "track"
-    ],
-    "codename": "view_track"
-  }
-},
-{
-  "model": "auth.user",
-  "fields": {
-    "password": "!EusF3INLIWohOxxTLYqqcLHwKjhcvzI8l2nfpV10",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "apiuser",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2021-01-26T16:08:27.803Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "authtoken.token",
-  "pk": "fa48f5e758d005770bf51748cc3ac940b68ad700",
-  "fields": {
-    "user": [
-      "apiuser"
-    ],
-    "created": "2021-01-26T16:08:57.429Z"
   }
 }
 ]

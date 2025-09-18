@@ -5,6 +5,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext as _
 
+from rock_music_assignment import constants as rock_music_constants
+
 
 class UUIDManager(models.Manager):
     def get_by_natural_key(self, uuid: str) -> Any:
@@ -100,3 +102,41 @@ class Track(UUIDModel):
                 kwargs={"object_id": self.pk},
             )
         )
+
+
+# Playlist Tracks related changes #
+class Playlist(UUIDModel):
+    "Playlist models to store playlists"
+    name = models.CharField(
+        max_length=rock_music_constants.CHAR_FIELD_MAX_SIZE,
+        help_text=rock_music_constants.HELP_TEXTS['PLAYLIST_NAME']
+    )
+    tracks = models.ManyToManyField(
+        to=Track, through="PlayListTrack", related_name="playlist_tracks"
+    )
+
+
+class PlayListTrack(UUIDModel):
+    track_id = models.ForeignKey(
+        Track,
+        on_delete=models.CASCADE,
+        help_text=rock_music_constants.HELP_TEXTS['TRACK']
+    )
+    playlist = models.ForeignKey(
+        Playlist,
+        on_delete=models.CASCADE,
+        help_text=rock_music_constants.HELP_TEXTS['PLAYLIST']
+    )
+    order = models.IntegerField(
+        help_text=rock_music_constants.HELP_TEXTS['ORDER']
+    )
+
+    class Meta:
+        constraints = (
+            models.UniqueConstraint(
+                fields=("order", "playlist_id", "track_id"), name="unique_track_order_in_playlist"
+            ),
+        )
+    
+    def __str__(self):
+        return f'{self.playlist_id} - {self.track_id_id} - {self.order}'
