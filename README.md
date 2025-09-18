@@ -32,8 +32,8 @@ Each playlist must have:
 
 ### 3. Business Rules
 - Prevent **duplicate tracks** in a playlist.  
-- Limit playlists to a maximum of **100 tracks**.  
-- Validate that a **track belongs to the album’s artist**.  
+- Limit playlists to a maximum of **100 tracks**.
+<!-- - Validate that a **track belongs to the album’s artist**.   -->
 
 ---
 

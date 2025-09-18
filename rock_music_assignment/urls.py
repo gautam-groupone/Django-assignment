@@ -4,7 +4,7 @@ from django.urls import include, path, re_path
 from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 
-from .viewsets import AlbumViewSet, ArtistViewSet, TrackViewSet
+from .viewsets import AlbumViewSet, ArtistViewSet, TrackViewSet, PlayListCreateUpdateDeleteViewSet, PlaylistOrderUpdateAPI
 
 urlpatterns = []
 
@@ -20,7 +20,9 @@ if settings.DJANGO_API_ENABLED:
     api_router.register("artists", ArtistViewSet)
     api_router.register("albums", AlbumViewSet)
     api_router.register("tracks", TrackViewSet)
+    api_router.register("playlists", PlayListCreateUpdateDeleteViewSet)
 
     urlpatterns += [
         path("api/<version>/", include(api_router.urls)),
+        path("api/playlist-update/<uuid:playlist__uuid>/", PlaylistOrderUpdateAPI.as_view({'put': 'update'}))
     ]
